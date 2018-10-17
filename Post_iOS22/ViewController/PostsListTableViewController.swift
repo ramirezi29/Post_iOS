@@ -13,28 +13,29 @@ class PostsListTableViewController: UITableViewController {
     
     @IBOutlet weak var addPostButton: UIBarButtonItem!
     
-    let posts: [Post] = []
-    // NOTE: - Not Sure if we need an instance of PostController
+    var posts: [Post] = []
     
-    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
-        fetchPosts()
+        fetchPosts { (success) in
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchPosts()
+        fetchPosts { (success) in
+        }
     }
     
-    // MARK: - Funcs
-    func fetchPosts() {
+    // MARK: - Func
+    func fetchPosts(completion: @escaping ((Bool) -> Void )) {
         
-        // PostController.fetchPosts(completion: <#T##([Post]) -> Void#>)
-        PostController.fetchPosts { ([Post]) in
-            if (self.posts) != nil {
+        PostController.fetchPosts { (posts) in
+            self.posts = posts
+            if posts.count > 0 {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -54,17 +55,20 @@ class PostsListTableViewController: UITableViewController {
         }
     }
     
-    
-    
     // MARK: - Actions
     
     @IBAction func addPostButtonTapped(_ sender: Any) {
         prsentNewPostAlert()
+        
+        // put this line in in order to make the add button fetch. right away
+        self.reloadTableView()
     }
     
     
     @IBAction func userRefreshed(_ sender: UIRefreshControl) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        fetchPosts { (success) in
+        }
         PostController.fetchPosts{_ in
             self.reloadTableView()
             DispatchQueue.main.async {
@@ -72,7 +76,6 @@ class PostsListTableViewController: UITableViewController {
             }
         }
     }
-    
 }
 
 // MARK: - Table view data source and Segue
@@ -87,13 +90,12 @@ extension PostsListTableViewController  {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostUITableViewCell else  {return UITableViewCell()}
         let post = posts[indexPath.row]
-       cell.post = post
+        cell.post = post
         return cell
     }
-    
 }
 
-// MARK: - Alert
+// MARK: - UI Alert
 extension PostsListTableViewController {
     func prsentNewPostAlert() {
         let alertController = UIAlertController(title: "Post iOS22", message: "The Best Post App on the App Store", preferredStyle: .alert)
@@ -109,20 +111,21 @@ extension PostsListTableViewController {
             messageText.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
         }
         let postAction = UIAlertAction(title: "Post", style: .default) { (_) in
-            // the text
             guard let usersNameTextField = alertController.textFields?.first?.text,
                 let usersMessageText = alertController.textFields?[1].text else {return}
             PostController.addNewPostWith(username: usersNameTextField, text: usersMessageText, completion: { (_) in
-                if (self.posts) != nil  {
+                if self.posts.count > 0 {
                     DispatchQueue.main.async {
+                        self.fetchPosts(completion: { (success) in
+                        })
                         self.tableView.reloadData()
                     }
                 }
             })
         }
-            let dismissAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-            alertController.addAction(dismissAction)
-            alertController.addAction(postAction)
-            self.present(alertController, animated: true)
-        }
+        let dismissAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alertController.addAction(dismissAction)
+        alertController.addAction(postAction)
+        self.present(alertController, animated: true)
     }
+}

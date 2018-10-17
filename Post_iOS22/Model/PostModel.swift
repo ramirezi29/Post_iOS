@@ -19,8 +19,22 @@ struct Post: Codable {
         self.text = text
         self.timestamp = Date().timeIntervalSince1970
     }
+
+    var timestampAsString: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        
+        let date = Date(timeIntervalSince1970: self.timestamp)
+        
+        
+        return formatter.string(from: date)
+    }
+    
+//    var dataAsString: String? {
+//        let formatter = DateIntervalFormatter()
+//        formatter.dateStyle = .none
+//        formatter.timeStyle = .short
+//        return formatter.string(from: timestamp)
+//    }
 }
-
-let dummyPost = Post(username: "SleepyHead", text: "Soda is amazing")
-
-

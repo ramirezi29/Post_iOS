@@ -26,12 +26,11 @@ class PostUITableViewCell: UITableViewCell {
         userLabel.sizeToFit()
     }
     
-    // func
+    // MARK: - Funcs
     
     func updateViews(){
         messageLabel.text = post?.text
         userLabel.text = post?.username
-        timeLabel.text = "\(String(describing: post?.timestamp))"
+        timeLabel.text = post?.timestampAsString
     }
-    
 }
