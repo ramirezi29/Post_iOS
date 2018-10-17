@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Post_iOS22/ViewController/PostsListTableViewController.swift"
+            timestampString = "561429649.619252"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "prsentNewPostAlert()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (__C.UIAlertAction) -&gt; () in Post_iOS22.PostsListTableViewController.prsentNewPostAlert() -&gt; ()"
+                  moduleName = "Post_iOS22"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iramirez/Desktop/DevMnt/DevMntDocs/iOS22/week3/afternoonProject/Post_iOS22/Post_iOS22/ViewController/PostsListTableViewController.swift"
+                  timestampString = "561429649.9051"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "1064">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Post_iOS22.Post&gt;&gt;) -&gt; () in closure #3 (__C.UIAlertAction) -&gt; () in Post_iOS22.PostsListTableViewController.prsentNewPostAlert() -&gt; ()"
+                  moduleName = "Post_iOS22"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iramirez/Desktop/DevMnt/DevMntDocs/iOS22/week3/afternoonProject/Post_iOS22/Post_iOS22/ViewController/PostsListTableViewController.swift"
+                  timestampString = "561429649.911005"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Post_iOS22/ViewController/PostsListTableViewController.swift"
+            timestampString = "561429649.619681"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "prsentNewPostAlert()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
