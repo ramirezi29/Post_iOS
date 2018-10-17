@@ -17,29 +17,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" textLabel="MAX-bT-azR" detailTextLabel="XBH-5b-dp8" style="IBUITableViewCellStyleSubtitle" id="AMc-Qz-Z9z">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" id="AMc-Qz-Z9z" customClass="PostUITableViewCell" customModule="Post_iOS22" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AMc-Qz-Z9z" id="zsA-pS-9Or">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MAX-bT-azR">
-                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Message)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apK-uq-Ttg">
+                                            <rect key="frame" x="5" y="0.0" width="365" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XBH-5b-dp8">
-                                            <rect key="frame" x="16" y="25.5" width="33" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(User)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYX-V4-ovb">
+                                            <rect key="frame" x="5" y="22.5" width="49" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(TIMEE)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0su-XN-lYG">
+                                            <rect key="frame" x="256" y="22" width="119" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0su-XN-lYG" firstAttribute="top" secondItem="apK-uq-Ttg" secondAttribute="bottom" constant="1" id="0w4-25-m23"/>
+                                        <constraint firstAttribute="bottom" secondItem="0su-XN-lYG" secondAttribute="bottom" constant="0.5" id="Ke4-P3-59f"/>
+                                        <constraint firstItem="apK-uq-Ttg" firstAttribute="top" secondItem="zsA-pS-9Or" secondAttribute="top" id="KpG-FO-FDd"/>
+                                        <constraint firstAttribute="trailing" secondItem="0su-XN-lYG" secondAttribute="trailing" id="P5D-UN-w4z"/>
+                                        <constraint firstAttribute="trailing" secondItem="apK-uq-Ttg" secondAttribute="trailing" constant="5" id="QV8-Xz-fsB"/>
+                                        <constraint firstAttribute="bottom" secondItem="EYX-V4-ovb" secondAttribute="bottom" id="UNc-w3-jGz"/>
+                                        <constraint firstItem="0su-XN-lYG" firstAttribute="leading" secondItem="apK-uq-Ttg" secondAttribute="trailing" constant="-114" id="Z0T-N3-VFo"/>
+                                        <constraint firstItem="0su-XN-lYG" firstAttribute="leading" secondItem="EYX-V4-ovb" secondAttribute="trailing" constant="202" id="nAH-js-udc"/>
+                                        <constraint firstItem="apK-uq-Ttg" firstAttribute="leading" secondItem="zsA-pS-9Or" secondAttribute="leading" constant="5" id="obR-IR-oO3"/>
+                                        <constraint firstItem="EYX-V4-ovb" firstAttribute="leading" secondItem="zsA-pS-9Or" secondAttribute="leading" constant="5" id="pbZ-p9-Iv0"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="messageLabel" destination="apK-uq-Ttg" id="xxf-Qb-P2h"/>
+                                    <outlet property="timeLabel" destination="0su-XN-lYG" id="RCY-49-0te"/>
+                                    <outlet property="userLabel" destination="EYX-V4-ovb" id="zCD-MA-RrE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -67,7 +88,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jsm-x8-g7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-145" y="245"/>
+            <point key="canvasLocation" x="-146.40000000000001" y="244.22788605697153"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dIf-FS-wjk">

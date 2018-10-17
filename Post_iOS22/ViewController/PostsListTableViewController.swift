@@ -11,11 +11,11 @@ import UIKit
 
 class PostsListTableViewController: UITableViewController {
     
-    
     @IBOutlet weak var addPostButton: UIBarButtonItem!
     
-    
     let posts: [Post] = []
+    // NOTE: - Not Sure if we need an instance of PostController
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,10 +85,9 @@ extension PostsListTableViewController  {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostUITableViewCell else  {return UITableViewCell()}
         let post = posts[indexPath.row]
-        cell.textLabel?.text = post.text
-        cell.detailTextLabel?.text = "\(post.username), \(post.timestamp)"
+       cell.post = post
         return cell
     }
     
@@ -127,5 +126,3 @@ extension PostsListTableViewController {
             self.present(alertController, animated: true)
         }
     }
-
-

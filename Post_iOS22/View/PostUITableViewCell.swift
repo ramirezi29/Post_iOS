@@ -9,16 +9,29 @@
 import UIKit
 
 class PostUITableViewCell: UITableViewCell {
-
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var userLabel: UILabel!
+    
+    var post: Post? {
+        didSet{
+            updateViews()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        messageLabel.sizeToFit()
+        timeLabel.sizeToFit()
+        userLabel.sizeToFit()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    // func
+    
+    func updateViews(){
+        messageLabel.text = post?.text
+        userLabel.text = post?.username
+        timeLabel.text = "\(String(describing: post?.timestamp))"
     }
-
+    
 }
